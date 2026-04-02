@@ -11,3 +11,7 @@ def home_page(request):
                'posts':posts,
                'ai_creation':ai_creation}
     return render(request, 'home.html', context)
+def portfolio_page(request):
+    projects = Project.objects.all()
+    context = {'projects':projects}
+    return render(request, 'portfolio.html', context)
