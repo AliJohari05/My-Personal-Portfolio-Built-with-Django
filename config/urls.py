@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from portfolio import views
+from portfolio import views as portfolio_views
+from blog import views as blog_views
+from ai_lab import views as ai_lab_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
