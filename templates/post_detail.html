@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="section-card">
+        <h2 style="color: #03dac6;">{{ post.title }}</h2>
+
+        <small>📅 Published on: {{ post.created_on|date:"F d, Y" }}</small>
+        <br><br>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px;">
+        {% endif %}
+        <hr style="border-color: #333; margin: 20px 0;">
+
+        <p style="color: #e0e0e0; font-size: 1.1em; line-height: 1.8;">
+            {{ post.content|linebreaks }}
+        </p>
+
+        <br>
+        <a href="{% url 'blog' %}" style="background-color: #bb86fc; color: #121212; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+            ← Back to Blog
+        </a>
+    </div>
+</div>
+{% endblock %}

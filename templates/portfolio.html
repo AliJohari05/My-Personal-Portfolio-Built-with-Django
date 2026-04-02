@@ -6,10 +6,15 @@
         <h2>💻 My Projects (Portfolio)</h2>
         <ul>
             {% for project in projects %}
-                <li>
-                    <strong>{{ project.title }}</strong>
+                <li style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
+                    <strong><a href="{% url 'project_detail' project.id %}" style="color: white; text-decoration: none;">{{ project.title }}</a></strong>
                     <p>{{ project.description }}</p>
                     <small>Tech: {{ project.technology }}</small>
+
+                    <br><br>
+                    {% if project.image %}
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px;">
+                    {% endif %}
                 </li>
             {% empty %}
                 <li>No projects yet.</li>

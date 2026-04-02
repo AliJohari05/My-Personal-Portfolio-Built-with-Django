@@ -20,11 +20,17 @@ from portfolio import views
 from portfolio import views as portfolio_views
 from blog import views as blog_views
 from ai_lab import views as ai_lab_views
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home_page,name='home'),
     path('portfolio/', portfolio_views.portfolio_page, name='portfolio'),
+    path('portfolio/<int:project_id>',portfolio_views.project_detail, name='project_detail'),
     path('blog/', blog_views.blog_page, name='blog'),
-    path('ai-lab/', ai_lab_views.ai_lab_page, name='ai_lab'), 
+    path('blog/<int:post_id>/', blog_views.post_detail, name='post_detail'),
+    path('ai-lab/', ai_lab_views.ai_lab_page, name='ai_lab'),
+    path('ai-lab/<int:ai_lab_id>', ai_lab_views.ai_lab_detail, name='ai_lab_detail'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

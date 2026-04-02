@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="section-card">
+        <h2>{{ project.title }}</h2>
+        <small>Technology: {{ project.technology }}</small>
+
+        <br><br>
+        {% if project.image %}
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px;">
+        {% endif %}
+
+        <p>{{ project.description|linebreaks }}</p>
+        <br>
+        <a href="{% url 'portfolio' %}" style="color: #4CAF50;">&larr; Back to Portfolio</a>
+    </div>
+</div>
+{% endblock %}
