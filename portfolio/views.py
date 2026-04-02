@@ -1,5 +1,7 @@
 from django.shortcuts import render
-
+from .models import Project
+from blog.models import Post
+from ai_lab.models import AICreation
 # Create your views here.
 def home_page(request):
     projects = Project.objects.all()
