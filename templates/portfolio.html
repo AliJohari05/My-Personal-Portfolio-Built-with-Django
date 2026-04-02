@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="section-card">
+        <h2>💻 My Projects (Portfolio)</h2>
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <strong>{{ project.title }}</strong>
+                    <p>{{ project.description }}</p>
+                    <small>Tech: {{ project.technology }}</small>
+                </li>
+            {% empty %}
+                <li>No projects yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

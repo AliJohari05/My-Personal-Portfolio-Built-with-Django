@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+    <div class="section-card">
+        <h2>💻 My Projects (Portfolio)</h2>
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <strong>{{ project.title }}</strong>
+                    <p>{{ project.description }}</p>
+                    <small>Tech: {{ project.technology }}</small>
+                </li>
+            {% empty %}
+                <li>No projects yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section-card">
+        <h2>📝 My Blog Posts</h2>
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <strong>{{ post.title }}</strong>
+                    <p>{{ post.content }}</p>
+                </li>
+            {% empty %}
+                <li>No posts yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section-card">
+        <h2>🤖 My AI Lab Creations</h2>
+        <ul>
+            {% for ai in ai_creations %}
+                <li>
+                    <strong>{{ ai.title }}</strong>
+                    <small style="float: right;">Type: {{ ai.creation_type }}</small>
+                    <p>{{ ai.description }}</p>
+                </li>
+            {% empty %}
+                <li>No AI creations yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+{% endblock %}
