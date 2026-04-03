@@ -18,3 +18,14 @@ def portfolio_page(request):
 def project_detail(request, project_id):
     project = get_object_or_404(Project, id=project_id)
     return render(request, 'project_detail.html', {'project': project})
+def contact_page(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save() # message saves in db
+            messages.success(request, 'Your message has been sent successfully! Thank you.')
+            return redirect('contact')
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
