@@ -31,6 +31,7 @@ urlpatterns = [
     path('blog/<int:post_id>/', blog_views.post_detail, name='post_detail'),
     path('ai-lab/', ai_lab_views.ai_lab_page, name='ai_lab'),
     path('ai-lab/<int:ai_lab_id>', ai_lab_views.ai_lab_detail, name='ai_lab_detail'),
+    path('contact/', portfolio_views.contact_page, name='contact'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

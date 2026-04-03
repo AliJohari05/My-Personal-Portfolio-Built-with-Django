@@ -16,6 +16,8 @@
                     {% endif %}
                     <p>{{ ai.description }}</p>
                 </li>
+            <a href="{% url 'ai_lab_detail' ai.id %}" class="btn-ailab" style="padding: 8px 15px; border-radius: 5px; text-decoration: none; display: inline-block;">View Details</a>
+
             {% empty %}
                 <li>No AI creations yet.</li>
             {% endfor %}
