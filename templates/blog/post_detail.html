@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ post.title }} - My Blog{% endblock %}
 
 {% block content %}
 <div class="container">
     <div class="section-card">
-        <h2 style="color: #03dac6;">{{ post.title }}</h2>
+        <h2 style="color: #7b1fa2;">{{ post.title }}</h2>
 
         <small>📅 Published on: {{ post.created_on|date:"F d, Y" }}</small>
         <br><br>
@@ -13,7 +15,7 @@
         <hr style="border-color: #333; margin: 20px 0;">
 
         <p style="color: #e0e0e0; font-size: 1.1em; line-height: 1.8;">
-            {{ post.content|linebreaks }}
+            {{ post.content|safe }}
         </p>
 
         <br>

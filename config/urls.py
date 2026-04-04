@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from portfolio import views
 from portfolio import views as portfolio_views
 from blog import views as blog_views
@@ -24,6 +24,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('tinymce/', include('tinymce.urls')),
     path('',views.home_page,name='home'),
     path('portfolio/', portfolio_views.portfolio_page, name='portfolio'),
     path('portfolio/<int:project_id>',portfolio_views.project_detail, name='project_detail'),

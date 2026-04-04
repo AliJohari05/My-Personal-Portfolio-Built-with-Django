@@ -2,11 +2,11 @@
 
 {% block content %}
 <div class="container">
-    <div class="section-card">
-        <h2>🤖 My AI Lab Creations</h2>
+    <div class="section-card" style="border-left: 5px solid #03dac6;">
+        <h2 style="color: #03dac6">🤖 My AI Lab Creations</h2>
         <ul>
-            {% for ai in ai_creations %}
-                <li style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
+            {% for ai in page_obj %}
+                <li class="li-ai" style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
                     <strong><a href="{% url 'ai_lab_detail' ai.id %}" style="color: white; text-decoration: none;">{{ ai.title }}</a></strong>
 
                     <small style="float: right;">Type: {{ ai.creation_type }}</small>
@@ -14,14 +14,34 @@
                     {% if ai.image %}
                         <img src="{{ ai.image.url }}" alt="{{ ai.title }}" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px;">
                     {% endif %}
-                    <p>{{ ai.description }}</p>
+                    <p>{{ ai.description|striptags|truncatewords:20 }}</p>
                 </li>
             <a href="{% url 'ai_lab_detail' ai.id %}" class="btn-ailab" style="padding: 8px 15px; border-radius: 5px; text-decoration: none; display: inline-block;">View Details</a>
-
+            <br><br>
             {% empty %}
                 <li>No AI creations yet.</li>
             {% endfor %}
         </ul>
     </div>
+</div>
+<!-- Pagination Controls -->
+<div class="pagination">
+    <span class="step-links">
+
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="btn-ailab" style="padding: 4px 8px;">&laquo; first </a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn-ailab" style="padding: 4px 8px;"> previous </a>
+        {% endif %}
+
+        <span class="current">
+            page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn-ailab" style="padding: 4px 8px;"> next </a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn-ailab" style="padding: 4px 8px;">&raquo; last </a>
+        {% endif %}
+
+    </span>
 </div>
 {% endblock %}

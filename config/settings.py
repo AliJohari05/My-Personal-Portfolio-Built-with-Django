@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # my apps
+    'tinymce',
     'portfolio',
     'blog',
     'ai_lab',

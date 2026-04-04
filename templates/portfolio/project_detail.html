@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% block title %}{{ project.title }} - My Portfolio{% endblock %}
 {% block content %}
 <div class="container">
-    <div class="section-card">
-        <h2>{{ project.title }}</h2>
+    <div class="section-card" style="border-left: 5px solid #ff6b00;">
+        <h2 style="color: #f89244">{{ project.title }}</h2>
         <small>Technology: {{ project.technology }}</small>
 
         <br><br>
@@ -11,9 +12,9 @@
             <img src="{{ project.image.url }}" alt="{{ project.title }}" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px;">
         {% endif %}
 
-        <p>{{ project.description|linebreaks }}</p>
+        <p>{{ project.description|safe }}</p>
         <br>
-        <a href="{% url 'portfolio' %}" style="color: #4CAF50;">&larr; Back to Portfolio</a>
+        <a href="{% url 'portfolio' %}" class="btn-portfolio" style="padding: 8px 15px">&larr; Back to Portfolio</a>
     </div>
 </div>
 {% endblock %}

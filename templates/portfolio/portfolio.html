@@ -2,14 +2,14 @@
 
 {% block content %}
 <div class="container">
-    <div class="section-card">
-        <h2>💻 My Projects (Portfolio)</h2>
+    <div class="section-card" style="border-left: 5px solid #ff6b00;">
+        <h2 style="color: #f89244">💻 My Projects (Portfolio)</h2>
         <ul>
-            {% for project in projects %}
-                <li style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
+            {% for project in page_obj %}
+                <li class="li-portfolio" style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
                     <strong><a href="{% url 'project_detail' project.id %}" style="color: white; text-decoration: none;">{{ project.title }}</a></strong>
-                    <p>{{ project.description }}</p>
-                    <small>Tech: {{ project.technology }}</small>
+                    <p>{{ project.description|striptags|truncatewords:20 }}</p>
+                    <small style="float: right">Tech: {{ project.technology }}</small>
 
                     <br><br>
                     {% if project.image %}
@@ -17,11 +17,31 @@
                     {% endif %}
                 </li>
             <a href="{% url 'project_detail' project.id %}" class="btn-portfolio" style="padding: 8px 15px; border-radius: 5px; text-decoration: none; display: inline-block;">View Project</a>
-
+            <br><br>
             {% empty %}
                 <li>No projects yet.</li>
             {% endfor %}
         </ul>
     </div>
+</div>
+<!-- Pagination Controls -->
+<div class="pagination">
+    <span class="step-links">
+
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="btn-portfolio" style="padding: 4px 8px;">&laquo; first </a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn-portfolio" style="padding: 4px 8px;"> previous </a>
+        {% endif %}
+
+        <span class="current">
+            page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn-portfolio" style="padding: 4px 8px;"> next </a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn-portfolio" style="padding: 4px 8px;">&raquo; last </a>
+        {% endif %}
+
+    </span>
 </div>
 {% endblock %}

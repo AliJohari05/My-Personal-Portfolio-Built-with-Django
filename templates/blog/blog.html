@@ -6,9 +6,9 @@
         <h2>📝 My Blog Posts</h2>
         <ul>
             {% for post in page_obj %}
-                <li style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
+                <li class="li-blog" style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
                     <strong>
-                        <a href="{% url 'post_detail' post.id %}" style="color: #03dac6; text-decoration: none;">
+                        <a href="{% url 'post_detail' post.id %}" style="color: #7b1fa2; text-decoration: none;">
                             {{ post.title }}
                         </a>
                     </strong>
@@ -17,9 +17,9 @@
                         <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px;">
                     <br><br>
                     {% endif %}
-                    <p>{{ post.content|truncatewords:20 }}</p>
+                    <p>{{ post.content|striptags|truncatewords:20 }}</p>
                 </li>
-            <a href="{% url 'post_detail' post.id %}" class="btn-blog" style="padding: 8px 15px; border-radius: 5px; text-decoration: none; display: inline-block;">Read More</a>
+            <a href="{% url 'post_detail' post.id %}" class="btn-blog" style="padding: 8px 15px;">Read More</a>
             <br><br>
 
             {% empty %}
@@ -32,19 +32,18 @@
 <div class="pagination">
     <span class="step-links">
 
-        <!-- اگر صفحه قبلی وجود داشت -->
         {% if page_obj.has_previous %}
-            <a href="?page=1" class="btn-blog">&laquo; اولین</a>
-            <a href="?page={{ page_obj.previous_page_number }}" class="btn-blog">قبلی</a>
+            <a href="?page=1" class="btn-blog" style="padding: 4px 8px;">&laquo; first </a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn-blog" style="padding: 4px 8px;"> previous </a>
         {% endif %}
 
         <span class="current">
-            صفحه {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}
+            page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
         </span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" class="btn-blog">بعدی</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn-blog">&raquo; آخرین</a>
+            <a href="?page={{ page_obj.next_page_number }}" class="btn-blog" style="padding: 4px 8px;"> next </a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn-blog" style="padding: 4px 8px;">&raquo; last </a>
         {% endif %}
 
     </span>

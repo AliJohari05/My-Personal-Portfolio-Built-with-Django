@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% block title %}{{ ai_creation.title }} - AI Lab{% endblock %}
 {% block content %}
 <div class="container">
-    <div class="section-card">
-        <h2>{{ ai_creation.title }}</h2>
+    <div class="section-card" style="border-left: 5px solid #03dac6;">
+        <h2 style="color: #03dac6">{{ ai_creation.title }}</h2>
         <small>Technology: {{ ai_creation.creation_type }}</small>
 
         <br><br>
@@ -11,9 +12,9 @@
             <img src="{{ ai_creation.image.url }}" alt="{{ ai_creation.title }}" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px;">
         {% endif %}
 
-        <p>{{ ai_creation.description|linebreaks }}</p>
+        <p>{{ ai_creation.description|safe }}</p>
         <br>
-        <a href="{% url 'ai_lab' %}" style="color: #4CAF50;">&larr; Back to AI_LAB</a>
+        <a href="{% url 'ai_lab' %}" class="btn-ailab" style="padding: 8px 15px">&larr; Back to AI_LAB</a>
     </div>
 </div>
 {% endblock %}

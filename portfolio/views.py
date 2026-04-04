@@ -4,6 +4,7 @@ from django.contrib import messages
 from blog.models import Post
 from ai_lab.models import AICreation
 from .forms import ContactForm
+from django.core.paginator import Paginator
 # Create your views here.
 def home_page(request):
     projects = Project.objects.all()
@@ -14,8 +15,13 @@ def home_page(request):
                'ai_creation':ai_creation}
     return render(request, 'portfolio\home.html', context)
 def portfolio_page(request):
-    projects = Project.objects.all()
-    context = {'projects':projects}
+    project_list = Project.objects.all().order_by('-created_on')
+    paginator = Paginator(project_list, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'page_obj': page_obj
+    }
     return render(request, 'portfolio\portfolio.html', context)
 def project_detail(request, project_id):
     project = get_object_or_404(Project, id=project_id)

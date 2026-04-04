@@ -56,7 +56,18 @@ li {
     border-radius: 8px;
     transition: transform 0.3s ease;
 }
-
+.li-blog:hover{
+    transform: translateY(-5px);
+    border-left: 3px solid #7B1FA2FF;
+}
+.li-portfolio:hover{
+    transform: translateY(-5px);
+    border-left: 3px solid #f89244;
+}
+.li-ai:hover{
+    transform: translateY(-5px);
+    border-left: 3px solid #00bcd4;
+}
 li:hover {
     transform: translateY(-5px);
     border-left: 3px solid #03dac6;
@@ -115,12 +126,20 @@ textarea:focus {
 .btn-portfolio {
     background-color: #ff6b00;
     box-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    color:white;
 }
 .btn-portfolio:hover { background-color: #e66000; box-shadow: 0 0 15px rgba(255, 107, 0, 0.6); }
 
 .btn-blog {
     background-color: #9c27b0;
     box-shadow: 0 0 10px rgba(156, 39, 176, 0.3);
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    color:white;
 }
 .btn-blog:hover { background-color: #7b1fa2; box-shadow: 0 0 15px rgba(156, 39, 176, 0.6); }
 
@@ -129,6 +148,9 @@ textarea:focus {
     color: #121212 !important;
     font-weight: bold;
     box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
 }
 .btn-ailab:hover { background-color: #00acc1; box-shadow: 0 0 15px rgba(0, 188, 212, 0.6); }
 
@@ -181,3 +203,28 @@ textarea:focus {
 .social-icon.linkedin:hover { background-color: #0077b5; }
 .social-icon.telegram:hover { background-color: #0088cc; }
 .social-icon.instagram:hover { background-color: #e1306c; }
+
+/* Pagination Styles */
+.pagination {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.pagination .step-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.pagination .current {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
