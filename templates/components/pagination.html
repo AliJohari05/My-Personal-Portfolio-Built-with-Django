@@ -1,0 +1,7 @@
+<div class="pagination">
+    <span class="step-links">
+
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="{{ btn_class }}" style="padding: 4px 8px;">&laquo; first </a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="{{ btn_class }}" style="padding: 4px 8px;"> previous </a>
+        {% endif %}
