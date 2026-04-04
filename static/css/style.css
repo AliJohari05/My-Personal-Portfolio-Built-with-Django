@@ -176,33 +176,61 @@ textarea:focus {
     border-top: 4px solid #4CAF50;
 }
 
-.social-links {
-    margin-top: 30px;
-    display: flex;
-    gap: 15px;
-}
 
-.social-icon {
-    display: inline-flex;
+/* =========================================
+   Social Icons Component Styles
+========================================= */
+.social-icons {
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 45px;
-    height: 45px;
-    background-color: #2c2c2c;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 50%;
-    font-size: 20px;
-    transition: 0.3s ease;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
 }
 
-.social-icon:hover {
-    transform: translateY(-5px);
+.social-icons a {
+    display: inline-flex;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: transparent;
 }
-.social-icon.github:hover { background-color: #6e5494; }
-.social-icon.linkedin:hover { background-color: #0077b5; }
-.social-icon.telegram:hover { background-color: #0088cc; }
-.social-icon.instagram:hover { background-color: #e1306c; }
+
+.social-icons a:hover {
+    transform: translateY(-3px) scale(1.1);
+}
+
+.social-icons .icon-github:hover {
+    color: #ffffff;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.social-icons .icon-linkedin:hover {
+    color: #0a66c2;
+    filter: drop-shadow(0 0 8px rgba(10, 102, 194, 0.4));
+}
+
+.social-icons .icon-instagram:hover {
+    color: #e1306c;
+    filter: drop-shadow(0 0 8px rgba(225, 48, 108, 0.4));
+}
+
+.social-icons .icon-telegram:hover {
+    color: #26a5e4;
+    filter: drop-shadow(0 0 8px rgba(38, 165, 228, 0.4));
+}
+
+.social-icons .icon-email:hover {
+    color: #ea4335;
+    filter: drop-shadow(0 0 8px rgba(234, 67, 53, 0.4));
+}
+
+.social-icons .icon-bale:hover {
+    color: #32c192;
+    filter: drop-shadow(0 0 8px rgba(50, 193, 146, 0.4));
+}
 
 /* Pagination Styles */
 .pagination {
@@ -227,4 +255,17 @@ textarea:focus {
     padding: 10px 15px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #444;
+    background-color: #1e1e1e;
+}
+
+.site-footer p {
+    color: #aaa;
+    margin-bottom: 15px;
 }

@@ -29,24 +29,6 @@
     </div>
 </div>
 <!-- Pagination Controls -->
-<div class="pagination">
-    <span class="step-links">
-
-        {% if page_obj.has_previous %}
-            <a href="?page=1" class="btn-blog" style="padding: 4px 8px;">&laquo; first </a>
-            <a href="?page={{ page_obj.previous_page_number }}" class="btn-blog" style="padding: 4px 8px;"> previous </a>
-        {% endif %}
-
-        <span class="current">
-            page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" class="btn-blog" style="padding: 4px 8px;"> next </a>
-            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn-blog" style="padding: 4px 8px;">&raquo; last </a>
-        {% endif %}
-
-    </span>
-</div>
+    {% include 'components/pagination.html' with btn_class="btn-blog" %}
 
 {% endblock %}

@@ -4,24 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="edit sth">
+    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="add html field as text editor in blog,portfolio,ai_lab&#10;and ...">
+      <change afterPath="$PROJECT_DIR$/templates/components/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/messages.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/navbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/social_links.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_lab/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_lab/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_lab/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_lab/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ai_lab/ai_lab.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ai_lab/ai_lab.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ai_lab/ai_lab_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ai_lab/ai_lab_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/blog/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/portfolio/portfolio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/portfolio/portfolio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/portfolio/project_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/portfolio/project_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +84,7 @@
       <workItem from="1775203876381" duration="4313000" />
       <workItem from="1775282179867" duration="9610000" />
       <workItem from="1775301876554" duration="1988000" />
+      <workItem from="1775317594167" duration="6519000" />
     </task>
     <task id="LOCAL-00001" summary="start project&#10;create apps">
       <option name="closed" value="true" />
@@ -233,7 +230,31 @@
       <option name="project" value="LOCAL" />
       <updated>1775291347793</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add html field as text editor in blog,portfolio,ai_lab&#10;and ...">
+      <option name="closed" value="true" />
+      <created>1775317890776</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1775317890776</updated>
+    </task>
+    <task id="LOCAL-00020" summary="create special html file as pagination component">
+      <option name="closed" value="true" />
+      <created>1775318182223</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1775318182223</updated>
+    </task>
+    <task id="LOCAL-00021" summary="create special html file as pagination component">
+      <option name="closed" value="true" />
+      <created>1775318187725</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1775318187725</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +279,8 @@
     <MESSAGE value="add forms.py" />
     <MESSAGE value="edit sth" />
     <MESSAGE value="add two library for image &amp; text editor" />
-    <option name="LAST_COMMIT_MESSAGE" value="add two library for image &amp; text editor" />
+    <MESSAGE value="add html field as text editor in blog,portfolio,ai_lab&#10;and ..." />
+    <MESSAGE value="create special html file as pagination component" />
+    <option name="LAST_COMMIT_MESSAGE" value="create special html file as pagination component" />
   </component>
 </project>
