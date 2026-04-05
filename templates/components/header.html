@@ -1,5 +1,7 @@
-<header class="site-header" style="text-align: center; padding: 40px 20px; background-color: #2a2a2a; margin-bottom: 30px;">
-    <h1>{{ title|default:"My Personal Workspace" }}</h1>
+
+<header  style="text-align: center; padding: 40px 20px;
+ background-color: #2a2a2a; margin-bottom: 30px; border-bottom: {{border_bottom_color|default:'3px solid #00ffcc'}};">
+    <h1 style="color: {{ title_color|default:'#00ffcc' }};">{{ title|default:"My Personal Workspace" }}</h1>
 
     <p style="color: #aaa; margin-top: 10px;">{{ subtitle|default:"Welcome to my website" }}</p>
 </header>
