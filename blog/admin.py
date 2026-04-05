@@ -6,5 +6,5 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ('title','category','content')
 admin.site.register(Post)
 class CategoryAdmin(admin.ModelAdmin):
-    pass
+    date_hierarchy = 'created_on'
 admin.site.register(Category)
