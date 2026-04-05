@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="add html field as text editor in blog,portfolio,ai_lab&#10;and ...">
-      <change afterPath="$PROJECT_DIR$/templates/components/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/messages.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/navbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/social_links.html" afterDir="false" />
+    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ai_lab/ai_lab.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ai_lab/ai_lab.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/blog/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/portfolio/portfolio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/portfolio/portfolio.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +76,8 @@
       <workItem from="1775203876381" duration="4313000" />
       <workItem from="1775282179867" duration="9610000" />
       <workItem from="1775301876554" duration="1988000" />
-      <workItem from="1775317594167" duration="6519000" />
+      <workItem from="1775317594167" duration="7392000" />
+      <workItem from="1775391415136" duration="1149000" />
     </task>
     <task id="LOCAL-00001" summary="start project&#10;create apps">
       <option name="closed" value="true" />
@@ -254,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775318187725</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="optimization html files">
+      <option name="closed" value="true" />
+      <created>1775325548466</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1775325548466</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,6 +282,7 @@
     <MESSAGE value="add two library for image &amp; text editor" />
     <MESSAGE value="add html field as text editor in blog,portfolio,ai_lab&#10;and ..." />
     <MESSAGE value="create special html file as pagination component" />
-    <option name="LAST_COMMIT_MESSAGE" value="create special html file as pagination component" />
+    <MESSAGE value="optimization html file" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimization html file" />
   </component>
 </project>

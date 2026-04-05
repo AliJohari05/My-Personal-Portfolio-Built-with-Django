@@ -7,13 +7,15 @@
     <title>{% block title %}My Personal Website{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">-->
 </head>
 <body>
 
     {% include 'components/navbar.html' %}
 
-    {% include 'components/header.html' %}
+    {% block header_section %}
+        {% include 'components/header.html' with title="My Personal Workspace" subtitle="Welcome to my website" %}
+    {% endblock %}
 
     {% include 'components/messages.html' %}
 
