@@ -4,6 +4,10 @@ from tinymce.models import HTMLField
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=100)
+
+    class Meta:
+        # To fix the plural spelling in Django Admin (Categories instead of Categorys)
+        verbose_name_plural = "Categories"
     def __str__(self):
         return self.name
     
