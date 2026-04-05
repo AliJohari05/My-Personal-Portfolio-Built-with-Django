@@ -19,3 +19,23 @@ def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     context = {'post': post}
     return render(request, 'blog/post_detail.html', context)
+
+
+def category_posts(request, category_name):
+    # Get the category by name, or return 404 if not found
+    category = get_object_or_404(Category, name=category_name)
+
+    # Filter posts that have this category
+    posts = Post.objects.filter(categories=category).order_by('-created_at')
+
+    # Pagination setup (same as your main blog view)
+    paginator = Paginator(posts, 5)  # 5 posts per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'category': category,
+        'page_obj': page_obj,
+    }
+    # We will reuse your existing blog template or create a new one
+    return render(request, 'blog/category_posts.html', context)
