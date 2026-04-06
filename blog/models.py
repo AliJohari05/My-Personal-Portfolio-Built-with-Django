@@ -10,12 +10,12 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
     def __str__(self):
         return self.name
-    
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = HTMLField()
     created_on = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
-
+    categories = models.ManyToManyField(Category, blank=True)
     def __str__(self):
         return self.title

@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-{% block header_section %}
-    {% include 'components/header.html' with title="My Weblog" subtitle="Read my latest articles and thoughts" title_color="#7B1FA2FF" border_bottom_color="3px solid #7B1FA2FF"%}
-{% endblock %}
+
+{% block title_header %}Category: {{ category.name }} {% endblock %}
+{% block subtitle_header %}Posts filtered by {{ category.name }}{% endblock %}
+
 {% block content %}
 <div class="container">
     <div class="section-card">
-        <h2>📝 My Blog Posts</h2>
+        <h2>📂 Posts in: {{ category.name }}</h2>
         <ul>
             {% for post in page_obj %}
                 <li class="li-blog" style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
@@ -17,32 +18,31 @@
                     <br><br>
                     {% if post.image %}
                         <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px;">
-                    <br><br>
+                        <br><br>
                     {% endif %}
-                    <!-- Categories -->
+
+                    <!-- Categories Links -->
                     {% if post.categories.all %}
                         <div style="margin-bottom: 10px;">
-                            {% for category in post.categories.all %}
-                                <a href="{% url 'category_posts' category.name %}" style="background-color: #333; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 5px; text-decoration: none;">
-                                    {{ category.name }}
+                            {% for cat in post.categories.all %}
+                                <a href="{% url 'category_posts' cat.name %}" style="background-color: #333; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 5px; text-decoration: none;">
+                                    {{ cat.name }}
                                 </a>
-
                             {% endfor %}
                         </div>
                     {% endif %}
 
                     <p>{{ post.content|striptags|truncatewords:20 }}</p>
+                    <a href="{% url 'post_detail' post.id %}" class="btn-blog" style="padding: 8px 15px;">Read More</a>
                 </li>
-            <a href="{% url 'post_detail' post.id %}" class="btn-blog" style="padding: 8px 15px;">Read More</a>
-            <br><br>
-
             {% empty %}
-                <li>No posts yet.</li>
+                <li>No posts found in this category.</li>
             {% endfor %}
         </ul>
     </div>
 </div>
+
 <!-- Pagination Controls -->
-    {% include 'components/pagination.html' with btn_class="btn-blog" %}
+{% include 'components/pagination.html' with btn_class="btn-blog" %}
 
 {% endblock %}

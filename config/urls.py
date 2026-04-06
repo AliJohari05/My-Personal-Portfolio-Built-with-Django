@@ -30,6 +30,7 @@ urlpatterns = [
     path('portfolio/<int:project_id>',portfolio_views.project_detail, name='project_detail'),
     path('blog/', blog_views.blog_page, name='blog'),
     path('blog/<int:post_id>/', blog_views.post_detail, name='post_detail'),
+    path('category/<str:category_name>/', blog_views.category_posts, name='category_posts'),
     path('ai-lab/', ai_lab_views.ai_lab_page, name='ai_lab'),
     path('ai-lab/<int:ai_lab_id>', ai_lab_views.ai_lab_detail, name='ai_lab_detail'),
     path('contact/', portfolio_views.contact_page, name='contact'),

@@ -1,15 +1,13 @@
 from django.shortcuts import render,get_object_or_404
 from django.core.paginator import Paginator
-from .models import Post
+from .models import Post,Category
 # Create your views here.
 def blog_page(request):
-    category = get_object_or_404(Category, name='category_name')
     post_list = Post.objects.all().order_by('-created_on')
     paginator = Paginator(post_list, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
-        'category': category,
         'page_obj': page_obj
     }
     return render(request, 'blog/blog.html', context)
@@ -26,10 +24,10 @@ def category_posts(request, category_name):
     category = get_object_or_404(Category, name=category_name)
 
     # Filter posts that have this category
-    posts = Post.objects.filter(categories=category).order_by('-created_at')
+    posts = Post.objects.filter(categories=category).order_by('-created_on')
 
     # Pagination setup (same as your main blog view)
-    paginator = Paginator(posts, 5)  # 5 posts per page
+    paginator = Paginator(posts, 3)  # 3 posts per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

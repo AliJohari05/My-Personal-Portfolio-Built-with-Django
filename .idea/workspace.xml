@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="create dynamic header">
+    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="denote headers">
+      <change afterPath="$PROJECT_DIR$/templates/blog/category_posts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/blog/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/portfolio/portfolio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/portfolio/portfolio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +81,7 @@
       <workItem from="1775282179867" duration="9610000" />
       <workItem from="1775301876554" duration="1988000" />
       <workItem from="1775317594167" duration="7392000" />
-      <workItem from="1775391415136" duration="2206000" />
+      <workItem from="1775391415136" duration="7356000" />
     </task>
     <task id="LOCAL-00001" summary="start project&#10;create apps">
       <option name="closed" value="true" />
@@ -262,17 +267,85 @@
       <option name="project" value="LOCAL" />
       <updated>1775392591599</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="denote headers">
+      <option name="closed" value="true" />
+      <created>1775393800020</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1775393800020</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add category class">
+      <option name="closed" value="true" />
+      <created>1775396443999</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1775396443999</updated>
+    </task>
+    <task id="LOCAL-00026" summary="edit category class">
+      <option name="closed" value="true" />
+      <created>1775396812447</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1775396812447</updated>
+    </task>
+    <task id="LOCAL-00027" summary="add some option for admin dashboard">
+      <option name="closed" value="true" />
+      <created>1775397019640</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1775397019640</updated>
+    </task>
+    <task id="LOCAL-00028" summary="add some option for admin dashboard">
+      <option name="closed" value="true" />
+      <created>1775397028611</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1775397028611</updated>
+    </task>
+    <task id="LOCAL-00029" summary="add some option for admin dashboard">
+      <option name="closed" value="true" />
+      <created>1775397057393</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1775397057393</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add category in views">
+      <option name="closed" value="true" />
+      <created>1775397928468</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1775397928468</updated>
+    </task>
+    <task id="LOCAL-00031" summary="send category for use it in html file">
+      <option name="closed" value="true" />
+      <created>1775397944520</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1775397944520</updated>
+    </task>
+    <task id="LOCAL-00032" summary="create this function for show posts that have same category">
+      <option name="closed" value="true" />
+      <created>1775398132010</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1775398132010</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="start project&#10;create apps" />
-    <MESSAGE value="create db&#10;create simple table for my apps(blog,ai_lab,portfolio)" />
-    <MESSAGE value="introduce templates Directory to django" />
-    <MESSAGE value="add data from db with DTL" />
     <MESSAGE value="import models from apps" />
     <MESSAGE value="create templates&#10;create menu &amp; pages" />
     <MESSAGE value="add portfolio function to views" />
@@ -291,6 +364,13 @@
     <MESSAGE value="create special html file as pagination component" />
     <MESSAGE value="optimization html file" />
     <MESSAGE value="create dynamic header" />
-    <option name="LAST_COMMIT_MESSAGE" value="create dynamic header" />
+    <MESSAGE value="denote headers" />
+    <MESSAGE value="add category class" />
+    <MESSAGE value="edit category class" />
+    <MESSAGE value="add some option for admin dashboard" />
+    <MESSAGE value="add category in views" />
+    <MESSAGE value="send category for use it in html file" />
+    <MESSAGE value="create this function for show posts that have same category" />
+    <option name="LAST_COMMIT_MESSAGE" value="create this function for show posts that have same category" />
   </component>
 </project>

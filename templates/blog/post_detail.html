@@ -14,6 +14,18 @@
         {% endif %}
         <hr style="border-color: #333; margin: 20px 0;">
 
+        {% if post.categories.all %}
+            <div class="post-categories" style="margin-bottom: 20px;">
+                <strong>Categories: </strong>
+                {% for category in post.categories.all %}
+                    <a href="{% url 'category_posts' category.name %}" style="background-color: #333; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 5px; text-decoration: none;">
+                        {{ category.name }}
+                    </a>
+
+                {% endfor %}
+            </div>
+        {% endif %}
+
         <p style="color: #e0e0e0; font-size: 1.1em; line-height: 1.8;">
             {{ post.content|safe }}
         </p>
