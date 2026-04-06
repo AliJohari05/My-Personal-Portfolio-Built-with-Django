@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.core.paginator import Paginator
 from .models import Post,Category
+from .forms import CommentForm
 # Create your views here.
 def blog_page(request):
     post_list = Post.objects.all().order_by('-created_on')
@@ -15,7 +16,24 @@ def blog_page(request):
 
 def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    context = {'post': post}
+    comments = post.comments.filter(active=True)
+    new_comment = None
+
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
+
+    context = {
+        'post': post,
+        'comments': comments,
+        'new_comment': new_comment,
+        'comment_form': comment_form
+    }
     return render(request, 'blog/post_detail.html', context)
 
 
