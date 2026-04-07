@@ -1,0 +1,52 @@
+{% load static%}
+<aside class="blog-sidebar">
+    <!-- 1. Search Widget -->
+    <div class="sidebar-widget">
+        <h3 class="widget-title">Search</h3>
+        <form method="get" action="{% url 'blog' %}" class="search-form">
+            <input type="text" name="q" placeholder="Search articles..." value="{{ request.GET.q }}">
+            <button type="submit" class="btn-search">🔍</button>
+        </form>
+    </div>
+
+    <!-- 2. Mini About-Me Widget -->
+    <div class="sidebar-widget about-widget">
+        <h3 class="widget-title">About Me</h3>
+        <img src="{% static 'images/profile.jpg' %}" alt="My Profile Picture" class="profile-pic">
+        <p>Web Developer & AI Enthusiast. Sharing my coding journey and experiences here.</p>
+        <a href="#" class="btn-about">Read More</a>
+    </div>
+
+    <!-- 3. Categories Widget -->
+    <div class="sidebar-widget">
+        <h3 class="widget-title">Categories</h3>
+        <ul class="category-list">
+            {% for category in categories %}
+                <li>
+                    <a href="#">{{ category.name }}</a>
+                    <span class="post-count">({{ category.post_count }})</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- 4. Recent Posts Widget -->
+    <div class="sidebar-widget">
+        <h3 class="widget-title">Recent Posts</h3>
+        <ul class="recent-posts-list">
+            {% for post in recent_posts %}
+                <li>
+                    <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- 5. Social Links Widget -->
+    <div class="sidebar-widget">
+        <h3 class="widget-title">Connect with me</h3>
+        <div class="sidebar-socials">
+            {% include 'components/social_links.html' %}
+        </div>
+    </div>
+</aside>

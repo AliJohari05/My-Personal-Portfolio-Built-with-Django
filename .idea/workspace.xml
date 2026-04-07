@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="setup comments for blog">
+    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/components/sidebar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_lab/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_lab/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/blog.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +78,9 @@
       <workItem from="1775301876554" duration="1988000" />
       <workItem from="1775317594167" duration="7392000" />
       <workItem from="1775391415136" duration="7356000" />
-      <workItem from="1775467044048" duration="3206000" />
+      <workItem from="1775467044048" duration="3572000" />
+      <workItem from="1775499748302" duration="4906000" />
+      <workItem from="1775547307292" duration="766000" />
     </task>
     <task id="LOCAL-00001" summary="start project&#10;create apps">
       <option name="closed" value="true" />
@@ -358,7 +362,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775469940956</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="complete dashboard admin">
+      <option name="closed" value="true" />
+      <created>1775470363029</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1775470363029</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +388,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add portfolio function to views" />
     <MESSAGE value="add blog_page function" />
     <MESSAGE value="import post model" />
     <MESSAGE value="import AICreation model" />
@@ -401,6 +412,7 @@
     <MESSAGE value="edit sth" />
     <MESSAGE value="add Comment model" />
     <MESSAGE value="setup comments for blog" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup comments for blog" />
+    <MESSAGE value="complete dashboard admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete dashboard admin" />
   </component>
 </project>

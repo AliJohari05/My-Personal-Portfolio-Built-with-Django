@@ -25,7 +25,7 @@ header h1 {
     flex-direction: column;
     gap: 30px;
     padding: 30px;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -268,4 +268,96 @@ textarea:focus {
 .site-footer p {
     color: #aaa;
     margin-bottom: 15px;
+}
+/* Blog Sidebar & Layout Styles*/
+
+/* Two-column layout using Flexbox */
+.blog-layout {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: flex-start; /* Prevents sidebar from stretching height */
+}
+.main-content {
+    flex: 3; /* Main content takes more space */
+}
+.sidebar-container {
+    flex: 1; /* Sidebar takes less space */
+}
+
+/* Sidebar Widget Styles */
+.sidebar-widget {
+    background:  #1a1025;;
+    border: 1px solid #3a254c;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #e0e0e0;
+    min-width: 280px;
+    padding: 1.5rem;
+
+}
+.widget-title {
+    font-size: 1.2rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Search Form Styles */
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+}
+.search-form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.btn-search {
+    padding: 0.5rem 1rem;
+    background: #333;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Sidebar Lists Styles */
+.category-list, .recent-posts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.category-list li, .recent-posts-list li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between; /* Space between name and count */
+}
+.category-list a, .recent-posts-list a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+/* About Me Widget Styles */
+.about-widget {
+    text-align: center;
+}
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .blog-layout {
+        flex-direction: column; /* Stacks sidebar below main content on mobile */
+    }
+    .main-content, .sidebar-container {
+        width: 100%;
+    }
 }

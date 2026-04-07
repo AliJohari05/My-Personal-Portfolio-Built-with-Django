@@ -1,48 +1,58 @@
 {% extends 'base.html' %}
+
 {% block header_section %}
     {% include 'components/header.html' with title="My Weblog" subtitle="Read my latest articles and thoughts" title_color="#7B1FA2FF" border_bottom_color="3px solid #7B1FA2FF"%}
 {% endblock %}
+
 {% block content %}
 <div class="container">
-    <div class="section-card">
-        <h2>📝 My Blog Posts</h2>
-        <ul>
-            {% for post in page_obj %}
-                <li class="li-blog" style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
-                    <strong>
-                        <a href="{% url 'post_detail' post.id %}" style="color: #7b1fa2; text-decoration: none;">
-                            {{ post.title }}
-                        </a>
-                    </strong>
-                    <br><br>
-                    {% if post.image %}
-                        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px;">
-                    <br><br>
-                    {% endif %}
-                    <!-- Categories -->
-                    {% if post.categories.all %}
-                        <div style="margin-bottom: 10px;">
-                            {% for category in post.categories.all %}
-                                <a href="{% url 'category_posts' category.name %}" style="background-color: #333; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 5px; text-decoration: none;">
-                                    {{ category.name }}
+    <div class="blog-layout">
+
+        <main class="main-content">
+            <div class="section-card">
+                <h2>📝 My Blog Posts</h2>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    {% for post in page_obj %}
+                        <li class="li-blog" style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
+                            <strong>
+                                <a href="{% url 'post_detail' post.id %}" style="color: #7b1fa2; text-decoration: none; font-size: 1.2rem;">
+                                    {{ post.title }}
                                 </a>
+                            </strong>
+                            <br><br>
+                            {% if post.image %}
+                                <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px;">
+                                <br><br>
+                            {% endif %}
 
-                            {% endfor %}
-                        </div>
-                    {% endif %}
+                            <!-- Categories -->
+                            {% if post.categories.all %}
+                                <div style="margin-bottom: 10px;">
+                                    {% for category in post.categories.all %}
+                                        <a href="{% url 'category_posts' category.name %}" style="background-color: #333; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 5px; text-decoration: none;">
+                                            {{ category.name }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
 
-                    <p>{{ post.content|striptags|truncatewords:20 }}</p>
-                </li>
-            <a href="{% url 'post_detail' post.id %}" class="btn-blog" style="padding: 8px 15px;">Read More</a>
-            <br><br>
+                            <p>{{ post.content|striptags|truncatewords:20 }}</p>
 
-            {% empty %}
-                <li>No posts yet.</li>
-            {% endfor %}
-        </ul>
+                            <a href="{% url 'post_detail' post.id %}" class="btn-blog" style="padding: 8px 15px; display: inline-block;">Read More</a>
+                        </li>
+                    {% empty %}
+                        <li>No posts yet.</li>
+                    {% endfor %}
+                </ul>
+
+                {% include 'components/pagination.html' with btn_class="btn-blog" %}
+            </div>
+        </main>
+
+        <aside class="sidebar-container">
+            {% include 'components/sidebar.html' %}
+        </aside>
+
     </div>
 </div>
-<!-- Pagination Controls -->
-    {% include 'components/pagination.html' with btn_class="btn-blog" %}
-
 {% endblock %}
