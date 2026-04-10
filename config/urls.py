@@ -16,12 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+
+from blog.sitemaps import BlogSitemap
 from portfolio import views
 from portfolio import views as portfolio_views
 from blog import views as blog_views
 from ai_lab import views as ai_lab_views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+from portfolio.sitemaps import StaticViewSitemap
+sitemaps = {'static': StaticViewSitemap,
+            'blog': BlogSitemap,}
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
@@ -35,6 +41,7 @@ urlpatterns = [
     path('ai-lab/', ai_lab_views.ai_lab_page, name='ai_lab'),
     path('contact/', portfolio_views.contact_page, name='contact'),
     path('ai-lab/<slug:slug>/', ai_lab_views.ai_lab_detail, name='ai_lab_detail'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
