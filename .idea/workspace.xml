@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="complete sth">
-      <change afterPath="$PROJECT_DIR$/templates/404.html" afterDir="false" />
+    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="edit 404.html page">
+      <change afterPath="$PROJECT_DIR$/blog/sitemaps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio/sitemaps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_lab/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_lab/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ai_lab/ai_lab_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ai_lab/ai_lab_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/sidebar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +93,8 @@
       <workItem from="1775663949800" duration="5276000" />
       <workItem from="1775672790761" duration="3626000" />
       <workItem from="1775753293561" duration="1296000" />
-      <workItem from="1775803281157" duration="2018000" />
+      <workItem from="1775803281157" duration="3637000" />
+      <workItem from="1775825643877" duration="8422000" />
     </task>
     <task id="LOCAL-00001" summary="start project&#10;create apps">
       <option name="closed" value="true" />
@@ -407,7 +416,31 @@
       <option name="project" value="LOCAL" />
       <updated>1775803788050</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="edit 404.html page">
+      <option name="closed" value="true" />
+      <created>1775807258924</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1775807258924</updated>
+    </task>
+    <task id="LOCAL-00042" summary="add humanize app">
+      <option name="closed" value="true" />
+      <created>1775825817861</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1775825817861</updated>
+    </task>
+    <task id="LOCAL-00043" summary="add published_date">
+      <option name="closed" value="true" />
+      <created>1775828562002</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1775828562002</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,9 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add pages" />
-    <MESSAGE value="import views" />
-    <MESSAGE value="add ai_lab_detail.html &amp; project_detail.html &amp; ..." />
     <MESSAGE value="add Contact model" />
     <MESSAGE value="add contact_page function" />
     <MESSAGE value="add forms.py" />
@@ -450,6 +480,9 @@
     <MESSAGE value="create sidebar" />
     <MESSAGE value="complete sth" />
     <MESSAGE value="write try&amp;except for wrong request" />
-    <option name="LAST_COMMIT_MESSAGE" value="write try&amp;except for wrong request" />
+    <MESSAGE value="edit 404.html page" />
+    <MESSAGE value="add humanize app" />
+    <MESSAGE value="add published_date" />
+    <option name="LAST_COMMIT_MESSAGE" value="add published_date" />
   </component>
 </project>

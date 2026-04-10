@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block title %}{{ ai_creation.title }} - My AI Lab{% endblock %}
 {% block header_section %}
     {% include 'components/header.html' with title=ai_creation.title subtitle="AI Model Details" title_color="#00E5FF" border_bottom_color="3px solid #00E5FF" %}
 {% endblock %}

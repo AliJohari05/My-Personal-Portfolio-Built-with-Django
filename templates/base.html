@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}My Personal Website{% endblock %}</title>
+    <!-- Dynamic SEO Meta Tags -->
+    <title>{% block title %}My Portfolio & AI Lab{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Software Engineer, Backend Developer, and AI Enthusiast building robust digital solutions.{% endblock %}">
+
+    <!-- Open Graph for Social Media Sharing -->
+    <meta property="og:title" content="{% block og_title %}{{ self.title }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ self.meta_description }}{% endblock %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">-->

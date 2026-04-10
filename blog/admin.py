@@ -3,7 +3,7 @@ from .models import Post,Category,Comment
 # Register your models here.
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title','created_on','image')
+    list_display = ('title','created_on','image','published_date')
     search_fields = ('title','category','content')
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
