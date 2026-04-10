@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q,Count
 from .models import Post,Category
 from .forms import CommentForm
