@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}{{ post.title }} - My Blog{% endblock %}
+{% block meta_description %}{{ post.content|truncatewords:20|striptags }}{% endblock %}
+{% block header_section %}
+    {% include 'components/header.html' with title=post.title subtitle="Post Details" title_color="#7B1FA2FF" border_bottom_color="3px solid #7B1FA2FF" %}
+{% endblock %}
 
 {% block content %}
 <div class="container">
