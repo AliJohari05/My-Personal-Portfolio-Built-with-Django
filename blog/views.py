@@ -14,8 +14,13 @@ def blog_page(request):
         ).distinct()
 
     paginator = Paginator(posts, 4)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    try:
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.get_page(1)
+    except EmptyPage:
+        page_obj = paginator.get_page(1)
 
     categories = Category.objects.annotate(post_count=Count('post'))
     recent_posts = Post.objects.all().order_by('-created_on')[:3]
