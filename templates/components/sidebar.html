@@ -1,4 +1,5 @@
-{% load static%}
+{% load static %}
+{% load humanize %}
 <aside class="blog-sidebar">
     <!-- 1. Search Widget -->
     <div class="sidebar-widget">
@@ -37,6 +38,7 @@
             {% for post in recent_posts %}
                 <li style="border-left-color: #7b1fa2">
                     <a href="{% url 'post_detail' post.pk %}" style="color: #aaaaaa">{{ post.title }}</a>
+                    <span style="font-size:11px"> {{ post.published_date|naturaltime }}</span>
                 </li>
             {% endfor %}
         </ul>
