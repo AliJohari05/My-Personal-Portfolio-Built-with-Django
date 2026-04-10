@@ -17,6 +17,8 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
     categories = models.ManyToManyField(Category, blank=True)
+    published_date = models.DateTimeField(default=timezone.now)
+
     def __str__(self):
         return self.title
 
