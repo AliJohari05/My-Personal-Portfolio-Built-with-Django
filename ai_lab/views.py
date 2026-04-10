@@ -7,8 +7,13 @@ def ai_lab_page(request):
     ai_list = AICreation.objects.all().order_by('-created_on')
 
     paginator = Paginator(ai_list, 6)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    try:
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.get_page(1)
+    except EmptyPage:
+        page_obj = paginator.get_page(1)
 
     context = {
         'page_obj': page_obj
