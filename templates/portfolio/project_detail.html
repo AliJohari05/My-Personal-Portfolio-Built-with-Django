@@ -1,20 +1,64 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block title %}{{ project.title }} - My Portfolio{% endblock %}
+
+{% block title %}{{ project.title }} | Portfolio{% endblock %}
+
+{% block header_section %}
+    {% include 'components/header.html' with title=project.title subtitle="Project Details" title_color="#FF6B00" border_bottom_color="3px solid #FF6B00" %}
+{% endblock %}
+
 {% block content %}
 <div class="container">
-    <div class="section-card" style="border-left: 5px solid #ff6b00;">
-        <h2 style="color: #f89244">{{ project.title }}</h2>
-        <small>Technology: {{ project.technology }}</small>
+    <div class="section-card" style="border-top: 5px solid #ff6b00; padding: 30px; border-left:1px solid #ff6b00;">
 
-        <br><br>
+        <!-- Back Button -->
+        <a href="{% url 'portfolio' %}" style="color: #ff6b00; text-decoration: none; display: inline-block; margin-bottom: 20px;">
+            &larr; Back to Portfolio
+        </a>
+
+        <!-- Project Image -->
         {% if project.image %}
-            <img src="{{ project.image.url }}" alt="{{ project.title }}" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px;">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" style="width: 100%; max-height: 500px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
         {% endif %}
 
-        <p>{{ project.description|safe }}</p>
-        <br>
-        <a href="{% url 'portfolio' %}" class="btn-portfolio" style="padding: 8px 15px">&larr; Back to Portfolio</a>
+        <!-- Categories -->
+        <div style="margin-bottom: 15px;">
+            <strong style="color: #f89244;">Categories:</strong>
+            {% for cat in project.categories.all %}
+                <a href="{% url 'portfolio_category' cat.slug %}" style="color: #ccc; text-decoration: none; margin-left: 5px; background: #222; padding: 3px 8px; border-radius: 5px; font-size: 0.9rem;">
+                    {{ cat.name }}
+                </a>
+            {% endfor %}
+        </div>
+
+        <!-- Tech Stack -->
+        <div style="margin-bottom: 20px;">
+            <strong style="color: #f89244;">Technologies Used:</strong><br>
+            <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px;">
+                {% for tech in project.get_tech_list %}
+                    <span style="background-color: rgba(255, 107, 0, 0.1); color: #ff6b00; border: 1px solid #ff6b00; padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">
+                        {{ tech }}
+                    </span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- External Links -->
+        <div style="margin-bottom: 30px; display: flex; gap: 15px;">
+            {% if project.github_link %}
+                <a href="{{ project.github_link }}" target="_blank" style="background-color: #333; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">View Source Code (GitHub)</a>
+            {% endif %}
+            {% if project.demo_link %}
+                <a href="{{ project.demo_link }}" target="_blank" style="background-color: #ff6b00; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Live Demo</a>
+            {% endif %}
+        </div>
+
+        <!-- Full Description -->
+        <div class="project-content" style="line-height: 1.8; color: #e0e0e0;">
+            <h3 style="color: #f89244;">About the Project</h3>
+            <!-- Using the 'safe' filter in case you use HTML tags in your description -->
+            {{ project.description|safe }}
+        </div>
+
     </div>
 </div>
 {% endblock %}

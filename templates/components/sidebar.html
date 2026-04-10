@@ -22,8 +22,8 @@
         <h3 class="widget-title">Categories</h3>
         <ul class="category-list">
             {% for category in categories %}
-                <li>
-                    <a href="#">{{ category.name }}</a>
+                <li style="border-left-color: #7b1fa2">
+                    <a href="{% url 'category_posts' category.name %}" style="color: #aaaaaa">{{ category.name }}</a>
                     <span class="post-count">({{ category.post_count }})</span>
                 </li>
             {% endfor %}
@@ -35,8 +35,8 @@
         <h3 class="widget-title">Recent Posts</h3>
         <ul class="recent-posts-list">
             {% for post in recent_posts %}
-                <li>
-                    <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+                <li style="border-left-color: #7b1fa2">
+                    <a href="{% url 'post_detail' post.pk %}" style="color: #aaaaaa">{{ post.title }}</a>
                 </li>
             {% endfor %}
         </ul>

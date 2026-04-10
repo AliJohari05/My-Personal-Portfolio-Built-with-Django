@@ -1,53 +1,261 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container">
+<style>
+    /* =========================================
+       Home Page Animations & Styles (Inline)
+       ========================================= */
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
 
-    <div class="section-card">
-        <h2>💻 My Projects (Portfolio)</h2>
-        <ul>
-            {% for project in projects %}
-                <li>
-                    <strong>{{ project.title }}</strong>
-                    <p>{{ project.description }}</p>
-                    <small>Tech: {{ project.technology }}</small>
-                </li>
-            {% empty %}
-                <li>No projects yet.</li>
-            {% endfor %}
-        </ul>
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(90deg, #00e5ff, #b100ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        color: #ccc;
+        max-width: 600px;
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s ease-out 0.5s both;
+    }
+
+    .floating-element {
+        font-size: 5rem;
+        color: #b100ff;
+        margin-bottom: 1rem;
+        font-weight: 900;
+        font-family: monospace;
+        letter-spacing: -5px;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+    }
+
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Infinite Tech Slider (Marquee) */
+    .tech-slider-container {
+        width: 100%;
+        overflow: hidden;
+        background: #111;
+        padding: 30px 0;
+        border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
+        margin: 40px 0;
+    }
+
+    .tech-track {
+        display: flex;
+        width: calc(150px * 14);
+        animation: scrollTrack 20s linear infinite;
+    }
+
+    .tech-slide {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #888;
+        transition: all 0.3s ease;
+    }
+
+    .tech-logo-box {
+        width: 70px;
+        height: 70px;
+        background: #1a1a1a;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 900;
+        font-family: monospace;
+        border: 2px solid #333;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .tech-slide:hover .tech-logo-box {
+        border-color: #00e5ff;
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .tech-slide span {
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+    @keyframes scrollTrack {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-150px * 7)); }
+    }
+
+    /* About Section */
+    .home-about-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 50px 20px;
+        background: #1a1a1a;
+        border-radius: 15px;
+        margin-bottom: 50px;
+    }
+
+    .about-text {
+        flex: 1 1 500px;
+        color: #ddd;
+        line-height: 1.8;
+    }
+
+    .about-stats {
+        flex: 1 1 300px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .stat-box {
+        background: #222;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        border: 1px solid #333;
+        transition: border-color 0.3s;
+    }
+
+    .stat-box:hover {
+        border-color: #b100ff;
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #b100ff;
+    }
+
+    .btn-primary {
+        display: inline-block;
+        padding: 12px 25px;
+        background: linear-gradient(90deg, #b100ff, #00e5ff);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: transform 0.3s;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="hero-section container">
+    <div class="floating-element">
+        &lt;/&gt;
     </div>
-
-    <div class="section-card">
-        <h2>📝 My Blog Posts</h2>
-        <ul>
-            {% for post in posts %}
-                <li>
-                    <strong>{{ post.title }}</strong>
-                    <p>{{ post.content }}</p>
-                </li>
-
-
-            {% empty %}
-                <li>No posts yet.</li>
-            {% endfor %}
-        </ul>
+    <h1 class="hero-title">Software Engineer & AI Enthusiast</h1>
+    <p class="hero-subtitle">
+        Building robust backend systems, exploring artificial intelligence, and crafting seamless digital experiences.
+    </p>
+    <div style="display: flex; gap: 15px;">
+        <a href="#about" class="btn-primary">More About Me</a>
+        <a href="{% url 'portfolio' %}" class="btn-primary" style="background: transparent; border: 2px solid #00e5ff; color: #00e5ff;">View Portfolio</a>
     </div>
+</section>
 
-    <div class="section-card">
-        <h2>🤖 My AI Lab Creations</h2>
-        <ul>
-            {% for ai in ai_creations %}
-                <li>
-                    <strong>{{ ai.title }}</strong>
-                    <small style="float: right;">Type: {{ ai.creation_type }}</small>
-                    <p>{{ ai.description }}</p>
-                </li>
-            {% empty %}
-                <li>No AI creations yet.</li>
-            {% endfor %}
-        </ul>
+<!-- Infinite Tech Stack Marquee (Offline Pure CSS) -->
+<div class="tech-slider-container">
+    <div class="tech-track">
+        <!-- Set 1 -->
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #FFD43B;">PY</div><span>Python</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #f89820;">JV</div><span>Java</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #00599C;">C++</div><span>C / C++</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #7F52FF;">KT</div><span>Kotlin</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #44B78B;">DJ</div><span>Django</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #21759b;">WP</div><span>WordPress</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #F29111;">DB</div><span>SQL/NoSQL</span></div>
+
+        <!-- Set 2 (for infinite scroll) -->
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #FFD43B;">PY</div><span>Python</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #f89820;">JV</div><span>Java</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #00599C;">C++</div><span>C / C++</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #7F52FF;">KT</div><span>Kotlin</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #44B78B;">DJ</div><span>Django</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #21759b;">WP</div><span>WordPress</span></div>
+        <div class="tech-slide"><div class="tech-logo-box" style="color: #F29111;">DB</div><span>SQL/NoSQL</span></div>
     </div>
-
 </div>
+
+<!-- About Me Section -->
+<section id="about" class="container">
+    <div class="home-about-section">
+        <div class="about-text">
+            <h2 style="color: #00e5ff; margin-top: 0;">About Me</h2>
+            <p>
+                Hello! I am a passionate developer with expertise in various programming languages including Python, Java, C++, and Kotlin. My primary focus is on backend architecture, artificial intelligence, and building scalable applications.
+            </p>
+            <p>
+                I thrive in environments where I can solve complex logic problems and optimize database queries. Through my journey, I have built multiple web apps using Django and customized intricate WordPress architectures.
+            </p>
+            <div style="margin-top: 25px;">
+                <a href="#" class="btn-primary">&darr; Download Resume</a>
+            </div>
+        </div>
+
+        <div class="about-stats">
+            <div class="stat-box">
+                <span class="stat-number">5+</span>
+                <span style="color: #888;">Years Experience</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">20+</span>
+                <span style="color: #888;">Projects Completed</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">10+</span>
+                <span style="color: #888;">AI Models Trained</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">100%</span>
+                <span style="color: #888;">Dedication</span>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

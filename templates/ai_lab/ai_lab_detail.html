@@ -1,20 +1,76 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block title %}{{ ai_creation.title }} - AI Lab{% endblock %}
+
+{% block header_section %}
+    {% include 'components/header.html' with title=ai_creation.title subtitle="AI Model Details" title_color="#00E5FF" border_bottom_color="3px solid #00E5FF" %}
+{% endblock %}
+
 {% block content %}
 <div class="container">
-    <div class="section-card" style="border-left: 5px solid #03dac6;">
-        <h2 style="color: #03dac6">{{ ai_creation.title }}</h2>
-        <small>Technology: {{ ai_creation.creation_type }}</small>
+    <div class="section-card" style="border-left: 5px solid #00e5ff;">
 
-        <br><br>
-        {% if ai_creation.image %}
-            <img src="{{ ai_creation.image.url }}" alt="{{ ai_creation.title }}" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px;">
-        {% endif %}
+        <a href="{% url 'ai_lab' %}" style="color: #00e5ff; text-decoration: none; display: inline-block; margin-bottom: 20px;">
+            &larr; Back to AI Lab
+        </a>
 
-        <p>{{ ai_creation.description|safe }}</p>
-        <br>
-        <a href="{% url 'ai_lab' %}" class="btn-ailab" style="padding: 8px 15px">&larr; Back to AI_LAB</a>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+
+            <div style="flex: 1 1 60%;">
+                <h2 style="color: #00e5ff; margin-top: 0;">{{ ai_creation.title }}</h2>
+
+                <div style="display: flex; gap: 15px; margin-bottom: 20px; font-size: 0.9rem;">
+                    <span style="background-color: #333; padding: 5px 10px; border-radius: 5px; color: #fff;">
+                        <i class="fas fa-microchip" style="color: #00e5ff;"></i> {{ ai_creation.creation_type }}
+                    </span>
+                    <span style="background-color: #333; padding: 5px 10px; border-radius: 5px; color: #fff;">
+                        <i class="fas fa-info-circle" style="color: #00e5ff;"></i> Status: {{ ai_creation.get_status_display }}
+                    </span>
+                    <span style="background-color: #333; padding: 5px 10px; border-radius: 5px; color: #fff;">
+                        <i class="far fa-calendar-alt" style="color: #00e5ff;"></i> {{ ai_creation.created_on|date:"F d, Y" }}
+                    </span>
+                </div>
+
+                {% if ai_creation.image %}
+                    <div style="margin-bottom: 30px;">
+                        <img src="{{ ai_creation.image.url }}" alt="{{ ai_creation.title }}" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #333;">
+                    </div>
+                {% endif %}
+
+                <div style="color: #ccc; line-height: 1.8;">
+                    {{ ai_creation.description|safe }}
+                </div>
+            </div>
+
+            <div style="flex: 1 1 30%; background-color: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; min-width: 250px;">
+                <h3 style="color: #fff; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;">Resources & Links</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+
+                    {% if ai_creation.colab_link %}
+                        <a href="{{ ai_creation.colab_link }}" target="_blank" style="display: block; text-align: center; background-color: #f9ab00; color: #000; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: opacity 0.3s;">
+                            <i class="fas fa-laptop-code"></i> Open in Google Colab
+                        </a>
+                    {% endif %}
+
+                    {% if ai_creation.github_link %}
+                        <a href="{{ ai_creation.github_link }}" target="_blank" style="display: block; text-align: center; background-color: #fff; color: #000; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: opacity 0.3s;">
+                            <i class="fab fa-github"></i> View Source on GitHub
+                        </a>
+                    {% endif %}
+
+                    {% if ai_creation.link %}
+                        <a href="{{ ai_creation.link }}" target="_blank" style="display: block; text-align: center; background-color: transparent; border: 1px solid #00e5ff; color: #00e5ff; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    {% endif %}
+
+                    {% if not ai_creation.colab_link and not ai_creation.github_link and not ai_creation.link %}
+                        <p style="color: #888; font-size: 0.9rem; text-align: center;">No external links available for this model.</p>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 {% endblock %}

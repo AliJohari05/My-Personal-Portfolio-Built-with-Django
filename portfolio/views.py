@@ -1,26 +1,34 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from .models import Project,ContactMessage
+from .models import Project,ContactMessage,ProjectCategory
 from django.contrib import messages
 from blog.models import Post
 from ai_lab.models import AICreation
 from .forms import ContactForm
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
+
 # Create your views here.
 def home_page(request):
-    projects = Project.objects.all()
-    posts = Post.objects.all()
-    ai_creation = AICreation.objects.all()
-    context = {'projects':projects,
-               'posts':posts,
-               'ai_creation':ai_creation}
-    return render(request, 'portfolio\home.html', context)
-def portfolio_page(request):
+    return render(request, 'portfolio\home.html')
+def portfolio_page(request, category_slug=None):
+    category = None
+    categories = ProjectCategory.objects.all()
     project_list = Project.objects.all().order_by('-created_on')
+    if category_slug:
+        category = get_object_or_404(ProjectCategory, slug=category_slug)
+        project_list = project_list.filter(categories=category)
     paginator = Paginator(project_list, 3)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    try:
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.get_page(1)
+    except EmptyPage:
+        page_obj = paginator.get_page(1)
     context = {
-        'page_obj': page_obj
+        'category': category,
+        'categories': categories,
+        'page_obj': page_obj,
     }
     return render(request, 'portfolio\portfolio.html', context)
 def project_detail(request, project_id):

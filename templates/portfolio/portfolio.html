@@ -1,32 +1,65 @@
 {% extends 'base.html' %}
+
 {% block header_section %}
-    {% include 'components/header.html' with title="My Projects" subtitle="A showcase of my recent work" title_color="#FF6B00FF" border_bottom_color="3px solid #FF6B00FF" %}
+    {% include 'components/header.html' with title="My Projects" subtitle="A showcase of my recent work" title_color="#FF6B00" border_bottom_color="3px solid #FF6B00" %}
 {% endblock %}
+
 {% block content %}
 <div class="container">
     <div class="section-card" style="border-left: 5px solid #ff6b00;">
         <h2 style="color: #f89244">💻 My Projects (Portfolio)</h2>
-        <ul>
+
+        <div style="margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="{% url 'portfolio' %}" style="padding: 5px 10px; border-radius: 5px; text-decoration: none; border: 1px solid #ff6b00; color: white; background-color: {% if not current_category %}#ff6b00{% else %}transparent{% endif %};">All</a>
+
+                    {% for cat in categories %}
+                        <a href="{% url 'portfolio_category' cat.slug %}" style="padding: 5px 10px; border-radius: 5px; text-decoration: none; border: 1px solid #ff6b00; color: white; background-color: {% if current_category.slug == cat.slug %}#ff6b00{% else %}transparent{% endif %};">
+                            {{ cat.name }}
+                        </a>
+                    {% endfor %}
+        </div>
+        <ul style="list-style: none; padding-left: 0;">
             {% for project in page_obj %}
                 <li class="li-portfolio" style="margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 15px;">
-                    <strong><a href="{% url 'project_detail' project.id %}" style="color: white; text-decoration: none;">{{ project.title }}</a></strong>
+                    <strong><a href="{% url 'project_detail' project.id %}" style="color: white; text-decoration: none; font-size: 1.2rem;">{{ project.title }}</a></strong>
+                    <div style="margin-top: 5px; margin-bottom: 10px;">
+                                            {% for cat in project.categories.all %}
+                                                <span style="font-size: 0.8rem; background-color: #333; color: #ccc; padding: 2px 8px; border-radius: 10px; margin-right: 5px;">{{ cat.name }}</span>
+                                            {% endfor %}
+                    </div>
                     <p>{{ project.description|striptags|truncatewords:20 }}</p>
-                    <small style="float: right">Tech: {{ project.technology }}</small>
+
+                    <!-- UPDATED: Using the new get_tech_list method from models.py -->
+                    <small style="float: right; color: #ff6b00;">
+                        Tech:
+                        {% for tech in project.get_tech_list %}
+                            {{ tech }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </small>
+
+                    <br clear="all"><br>
+
+                    {% if project.image %}
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px; max-height: 300px; object-fit: cover;">
+                    {% endif %}
 
                     <br><br>
-                    {% if project.image %}
-                        <img src="{{ project.image.url }}" alt="{{ project.title }}" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px;">
+                    <!-- Kept your detail button -->
+                    <a href="{% url 'project_detail' project.id %}" class="btn-portfolio" style="padding: 8px 15px; border-radius: 5px; text-decoration: none; display: inline-block; background-color: #ff6b00; color: white;">View Project</a>
+
+                    <!-- NEW: Added quick links to GitHub/Demo if they exist -->
+                    {% if project.github_link %}
+                        <a href="{{ project.github_link }}" target="_blank" style="padding: 8px 15px; border-radius: 5px; text-decoration: none; display: inline-block; border: 1px solid #ff6b00; color: #ff6b00; margin-left: 10px;">GitHub</a>
                     {% endif %}
                 </li>
-            <a href="{% url 'project_detail' project.id %}" class="btn-portfolio" style="padding: 8px 15px; border-radius: 5px; text-decoration: none; display: inline-block;">View Project</a>
-            <br><br>
             {% empty %}
                 <li>No projects yet.</li>
             {% endfor %}
         </ul>
     </div>
 </div>
+
 <!-- Pagination Controls -->
-    {% include 'components/pagination.html' with btn_class="btn-portfolio" %}
+{% include 'components/pagination.html' with btn_class="btn-portfolio" %}
 
 {% endblock %}

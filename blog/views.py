@@ -5,12 +5,26 @@ from .models import Post,Category
 from .forms import CommentForm
 # Create your views here.
 def blog_page(request):
-    post_list = Post.objects.all().order_by('-created_on')
-    paginator = Paginator(post_list, 3)
+    query = request.GET.get('q')
+    posts = Post.objects.all().order_by('-created_on')
+
+    if query:
+        posts = posts.filter(
+            Q(title__icontains=query) | Q(content__icontains=query)
+        ).distinct()
+
+    paginator = Paginator(posts, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+
+    categories = Category.objects.annotate(post_count=Count('post'))
+    recent_posts = Post.objects.all().order_by('-created_on')[:3]
+
     context = {
-        'page_obj': page_obj
+        'page_obj': page_obj,
+        'query': query,
+        'categories': categories,
+        'recent_posts': recent_posts,
     }
     return render(request, 'blog/blog.html', context)
 
@@ -57,26 +71,3 @@ def category_posts(request, category_name):
     # We will reuse your existing blog template or create a new one
     return render(request, 'blog/category_posts.html', context)
 
-def blog_list(request):
-    query = request.GET.get('q')
-    posts = Post.objects.all().order_by('-created_on')
-
-    if query:
-        posts = posts.filter(
-            Q(title__icontains=query) | Q(content__icontains=query)
-        ).distinct()
-
-    paginator = Paginator(posts, 3)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-
-    categories = Category.objects.annotate(post_count=Count('post'))
-    recent_posts = Post.objects.all().order_by('-created_on')[:3]
-
-    context = {
-        'page_obj': page_obj,
-        'query': query,
-        'categories': categories,
-        'recent_posts': recent_posts,
-    }
-    return render(request, 'blog/blog.html', context)

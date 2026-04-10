@@ -27,13 +27,14 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('',views.home_page,name='home'),
     path('portfolio/', portfolio_views.portfolio_page, name='portfolio'),
+    path('category/<slug:category_slug>/', views.portfolio_page, name='portfolio_category'),
     path('portfolio/<int:project_id>',portfolio_views.project_detail, name='project_detail'),
     path('blog/', blog_views.blog_page, name='blog'),
     path('blog/<int:post_id>/', blog_views.post_detail, name='post_detail'),
     path('category/<str:category_name>/', blog_views.category_posts, name='category_posts'),
     path('ai-lab/', ai_lab_views.ai_lab_page, name='ai_lab'),
-    path('ai-lab/<int:ai_lab_id>', ai_lab_views.ai_lab_detail, name='ai_lab_detail'),
     path('contact/', portfolio_views.contact_page, name='contact'),
+    path('ai-lab/<slug:slug>/', ai_lab_views.ai_lab_detail, name='ai_lab_detail'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
