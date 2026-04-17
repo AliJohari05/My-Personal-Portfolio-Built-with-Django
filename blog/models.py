@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from taggit.managers import TaggableManager
 from tinymce.models import HTMLField
 from django.urls import reverse
 
@@ -19,6 +20,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
     categories = models.ManyToManyField(Category, blank=True)
+    tags = TaggableManager()
     published_date = models.DateTimeField(default=timezone.now)
     class Meta:
         ordering = ['-created_on']
@@ -32,7 +34,7 @@ class Comment(models.Model):
     body = models.TextField(verbose_name="Comment")
     created_at = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
-
+    parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE, related_name='replies')
     class Meta:
         ordering = ['created_at'] 
 

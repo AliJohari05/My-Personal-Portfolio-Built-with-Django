@@ -591,3 +591,25 @@ textarea:focus {
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
     transform: scale(1.1) rotate(5deg);
 }
+.tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag-item {
+    background-color: #1e1e1e;
+    color: #aaaaaa;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-decoration: none;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.tag-item:hover {
+    border-color: #7b1fa2;
+    color: #fff;
+    background-color: rgba(123, 31, 162, 0.2);
+}

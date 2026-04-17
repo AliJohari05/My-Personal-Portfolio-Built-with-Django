@@ -43,8 +43,19 @@
             {% endfor %}
         </ul>
     </div>
+    <!-- 5. Tags Widget -->
+    <div class="sidebar-widget">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tags-cloud">
+            {% for tag in tags %}
+                <a href="{% url 'tag_posts' tag.slug %}" class="tag-item">{{ tag.name }}</a>
+            {% empty %}
+                <span style="color: #aaaaaa; font-size: 14px;">No tags available.</span>
+            {% endfor %}
+        </div>
+    </div>
 
-    <!-- 5. Social Links Widget -->
+    <!-- 6. Social Links Widget -->
     <div class="sidebar-widget">
         <h3 class="widget-title">Connect with me</h3>
         <div class="sidebar-socials">

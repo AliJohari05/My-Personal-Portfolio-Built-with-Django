@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import debug_toolbar
 from django.contrib import admin
 from django.urls import path,include
 
@@ -41,7 +42,10 @@ urlpatterns = [
     path('ai-lab/', ai_lab_views.ai_lab_page, name='ai_lab'),
     path('contact/', portfolio_views.contact_page, name='contact'),
     path('ai-lab/<slug:slug>/', ai_lab_views.ai_lab_detail, name='ai_lab_detail'),
+    path('blog/tag/<slug:tag_slug>/', blog_views.tag_posts, name='tag_posts'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('robots.txt', include('robots.urls')),
+    path('__debug__/', include(debug_toolbar.urls)),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

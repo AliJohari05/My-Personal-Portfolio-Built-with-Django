@@ -1,35 +1,151 @@
-<div class="comments-section section-card" style="margin-top: 40px;">
-    <h3>💬 Comments ({{ comments.count }})</h3>
 
-    <div class="existing-comments">
-        {% for comment in comments %}
-            <div class="comment-box" style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #7b1fa2;">
-                <strong>{{ comment.name }}</strong>
-                <span style="color: #888; font-size: 0.9em;">- {{ comment.created_at|date:"F d, Y" }}</span>
-                <p style="margin-top: 10px;">{{ comment.body|linebreaks }}</p>
+<style>
+    .comments-section {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid #333;
+    }
+    .comment-box {
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #333;
+    }
+    .reply-box {
+        margin-left: 40px;
+        border-left: 3px solid #b100ff;
+        background: #222;
+    }
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        color: #888;
+        font-size: 0.9rem;
+    }
+    .comment-author {
+        color: #00e5ff;
+        font-weight: bold;
+    }
+    .btn-reply {
+        background: transparent;
+        color: #b100ff;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+    .btn-reply:hover {
+        text-decoration: underline;
+    }
+    .comment-form-container {
+        margin-top: 30px;
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        background: #111;
+        border: 1px solid #333;
+        color: #ddd;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="comments-section">
+    <h3>Comments ({{ comments.count }})</h3>
+
+    <!-- List of Comments -->
+    {% for comment in comments %}
+        <!-- Top Level Comment -->
+        <div class="comment-box">
+            <div class="comment-header">
+                <span class="comment-author">{{ comment.name }}</span>
+                <span>{{ comment.created_on|date:"F d, Y" }}</span>
             </div>
-        {% empty %}
-            <p>No comments yet. Be the first to comment!</p>
+            <div class="comment-body">
+                {{ comment.body|linebreaks }}
+            </div>
+            <button class="btn-reply" onclick="addReply('{{ comment.id }}', '{{ comment.name }}')">Reply</button>
+        </div>
+
+        <!-- Nested Replies -->
+        {% for reply in comment.replies.all %}
+            {% if reply.active %}
+            <div class="comment-box reply-box">
+                <div class="comment-header">
+                    <span class="comment-author">{{ reply.name }}</span>
+                    <span>{{ reply.created_on|date:"F d, Y" }}</span>
+                </div>
+                <div class="comment-body">
+                    {{ reply.body|linebreaks }}
+                </div>
+            </div>
+            {% endif %}
         {% endfor %}
-    </div>
 
-    <hr style="margin: 30px 0;">
+    {% empty %}
+        <p>No comments yet. Be the first to share your thoughts!</p>
+    {% endfor %}
 
-    <div class="add-comment">
-        <h3>Leave a Comment</h3>
+    <!-- Comment Form -->
+    <div class="comment-form-container" id="form-container">
+        <h4 id="form-title">Leave a Comment</h4>
+        <form method="POST" id="comment-form">
+            {% csrf_token %}
+            <!-- Hidden field to store the parent comment ID -->
+            <input type="hidden" name="parent_id" id="parent_id" value="">
 
-        {% if new_comment %}
-            <div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
-                Your comment has been added successfully!
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" required>
             </div>
-        {% else %}
-            <form method="post" style="max-width: 500px;">
-                {% csrf_token %}
-                {{ comment_form.as_p }}
-                <button type="submit" class="btn-blog" style="padding: 10px 20px; background-color: #7b1fa2; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    Submit Comment
-                </button>
-            </form>
-        {% endif %}
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="body">Message</label>
+                <textarea name="body" id="body" rows="4" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="padding: 10px 20px;">Submit</button>
+            <button type="button" class="btn-reply" id="cancel-reply" style="display: none; margin-left: 15px;" onclick="cancelReply()">Cancel Reply</button>
+        </form>
     </div>
 </div>
+
+<script>
+    function addReply(commentId, authorName) {
+        // Set the hidden input value to the parent comment ID
+        document.getElementById('parent_id').value = commentId;
+
+        // Change the form title to show who they are replying to
+        document.getElementById('form-title').innerText = 'Replying to ' + authorName;
+
+        // Show the cancel button
+        document.getElementById('cancel-reply').style.display = 'inline-block';
+
+        // Scroll to the form
+        document.getElementById('form-container').scrollIntoView({ behavior: 'smooth' });
+
+        // Focus on the message box
+        document.getElementById('body').focus();
+    }
+
+    function cancelReply() {
+        // Clear the hidden input
+        document.getElementById('parent_id').value = '';
+
+        // Reset the form title
+        document.getElementById('form-title').innerText = 'Leave a Comment';
+
+        // Hide the cancel button
+        document.getElementById('cancel-reply').style.display = 'none';
+    }
+</script>
