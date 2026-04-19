@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
+from multi_captcha_admin import MULTI_CAPTCHA_ADMIN
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'multi_captcha_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +47,8 @@ INSTALLED_APPS = [
     'robots',
     'debug_toolbar',
     'taggit',
+    'django_summernote',
+    'captcha',
     # my apps
     'tinymce',
     'portfolio',
@@ -145,3 +150,33 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = ['127.0.0.1']
+#captcha admin setting
+MULTI_CAPTCHA_ADMIN = {
+    'engine':'simple-captcha',
+}
+
+# X_FRAME_OPTIONS = 'SAMEORIGIN'
+# #summernote congigs
+# SUMMERNOTE_THEME = 'bs4'
+#
+# SUMMERNOTE_CONFIG = {
+#     'iframe': False,
+#     'summernote': {
+#         'width': '100%',
+#         'height': '350',
+#         'toolbar': [
+#             ['style', ['bold', 'italic', 'underline', 'clear']],
+#             ['font', ['fontsize']],
+#             ['para', ['ul', 'ol', 'paragraph']],
+#             ['insert', ['link', 'picture']],
+#             ['view', ['fullscreen', 'codeview']],
+#         ],
+#         'disableDragAndDrop': False,
+#         'focus': True,
+#         # 'lang': 'fa-IR',
+#     },
+#
+#     'attachment_require_auth': False,
+#     'disable_attachment': False,
+#     'attachment_filesize_limit': 5 * 1024 * 1024,
+# }
