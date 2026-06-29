@@ -3,7 +3,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11-blue.svg)](https://www.python.org/)
 [![Django Version](https://img.shields.io/badge/django-4.2%20%7C%205.0-green.svg)](https://www.djangoproject.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/[YOUR_USERNAME]/[REPO_NAME]/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/AliJohari05/My-Personal-Portfolio-Built-with-Django/graphs/commit-activity)
 
 A sophisticated, fully-responsive personal portfolio website built with **Django**. This project showcases my professional journey, technical projects, and includes a dedicated **AI Lab** section for experimental tools and research.
 
@@ -11,8 +11,13 @@ A sophisticated, fully-responsive personal portfolio website built with **Django
 
 ## 📸 Preview
 
-![Project Header](https://via.placeholder.com/800x400?text=Portfolio+Landing+Page+Screenshot)
-*Replace this with a screenshot of your actual website*
+![Project Header](static/images/preview.png)
+![Project Header](static/images/preview1.png)
+![Project Header](static/images/preview2.png)
+![Project Header](static/images/preview3.png)
+![Project Header](static/images/preview4.png)
+![Project Header](static/images/preview5.png)
+![Project Header](static/images/preview6.png)
 
 ---
 
@@ -48,11 +53,9 @@ A sophisticated, fully-responsive personal portfolio website built with **Django
 
 Clone the repository:
 ```bash
-git clone https://github.com/[YOUR_USERNAME]/[REPO_NAME].git
-cd [REPO_NAME]
-Create and activate a virtual environment:
+git clone [https://github.com/AliJohari05/My-Personal-Portfolio-Built-with-Django.git](https://github.com/AliJohari05/My-Personal-Portfolio-Built-with-Django.git)
+cd My-Personal-Portfolio-Built-with-Django
 
-bash
 # Windows
 python -m venv venv
 venv\Scripts\activate
@@ -90,10 +93,12 @@ text
 [ ] Dark Mode support.
 [ ] Integrating a Newsletter system.
 👤 Author
-[Ali Johari]
+Ali Johari
 
 GitHub: @AliJohari05
-LinkedIn: https://www.linkedin.com/in/ali-johari05/
-Email: [alitehranijohari1384@gmail.com]
+
+LinkedIn: Ali Johari
+
+Email: alitehranijohari1384@gmail.com
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.

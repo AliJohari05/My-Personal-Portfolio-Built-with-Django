@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="add reply for comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +93,7 @@
       <workItem from="1776599631745" duration="1199000" />
       <workItem from="1776711226259" duration="1516000" />
       <workItem from="1776847200592" duration="11000" />
-      <workItem from="1782764310881" duration="304000" />
+      <workItem from="1782764310881" duration="2884000" />
     </task>
     <task id="LOCAL-00001" summary="start project&#10;create apps">
       <option name="closed" value="true" />
