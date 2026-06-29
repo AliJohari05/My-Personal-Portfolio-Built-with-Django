@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="">
+    <list default="true" id="3bd5654a-8afd-4ba0-ae88-dd6594185e22" name="Changes" comment="add reply for comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +88,10 @@
       <workItem from="1776454177948" duration="2073000" />
       <workItem from="1776485125919" duration="1776000" />
       <workItem from="1776497103267" duration="2805000" />
+      <workItem from="1776599631745" duration="1199000" />
+      <workItem from="1776711226259" duration="1516000" />
+      <workItem from="1776847200592" duration="11000" />
+      <workItem from="1782764310881" duration="304000" />
     </task>
     <task id="LOCAL-00001" summary="start project&#10;create apps">
       <option name="closed" value="true" />
@@ -480,7 +477,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776454231034</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="add reply for comments">
+      <option name="closed" value="true" />
+      <created>1776599678433</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1776599678433</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add html field as text editor in blog,portfolio,ai_lab&#10;and ..." />
     <MESSAGE value="create special html file as pagination component" />
     <MESSAGE value="optimization html file" />
     <MESSAGE value="create dynamic header" />
@@ -523,6 +527,7 @@
     <MESSAGE value="add published date &amp; humanize" />
     <MESSAGE value="edit sth" />
     <MESSAGE value="complete sth for reply comments&#10;add tags for posts&#10;add robots" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete sth for reply comments&#10;add tags for posts&#10;add robots" />
+    <MESSAGE value="add reply for comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="add reply for comments" />
   </component>
 </project>
